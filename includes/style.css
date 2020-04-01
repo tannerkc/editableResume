@@ -1,0 +1,173 @@
+body{
+    background-color: lightgrey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.container{
+    max-width: calc(2550px / 100%);
+    background-color: white;
+    box-sizing: border-box;
+    box-shadow: 4px 4px 20px rgba(3,3,3,0.3);
+    margin-top: 40px;
+    padding: 40px;
+    border-radius: 3px;
+}
+
+.contact{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+input{
+    outline: none;
+    border: none;
+}
+textarea{
+    outline: none;
+    border: none;
+    resize: none;
+    margin: 0;
+}
+
+::placeholder { 
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+ }
+
+#name{
+    width: 100%;
+    text-align: center;
+    display: block;
+    font-size: 2em;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+}
+
+#title{
+    width: 100%;
+    text-align: center;
+    display: block;
+    font-size: 1.2em;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+}
+
+#email, #phone, #address{
+    width: 30%;
+    text-align: center;
+    display: inline-block;
+    font-size: 1em;
+    letter-spacing: 1px;
+}
+
+#email{
+    width: 40%;
+}
+
+#phone{
+    font-size: .9em;
+}
+
+.certificates #title, .certificates #provider, .certificates #link{
+    font-size: .8em;
+    text-align: left;
+    width: 100%;
+}
+.certificates #title{
+    margin: 8px 0;
+    font-weight: 800;
+}
+.certificates #provider, #link{
+    color: grey;
+}
+
+hr{
+    width: 80%;
+    margin: 20px auto;
+}
+h2{
+    margin: 0 0 12px 0;
+    letter-spacing: 2px;
+    font-size: medium;
+    text-align: center;
+}
+h3{
+    font-size: small;
+    display: block;
+    /* margin: 0; */
+}
+
+.summary{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px 30px;
+}
+
+
+.credentials{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px 20px;
+}
+
+.skills, .certificates{
+    flex: 1;
+    text-align: left;
+}
+
+.skills{
+    border-right: 1px solid lightgrey;
+}
+.certificates{
+    padding-left: 20px;
+}
+
+.education #degree{
+    color: grey;
+}
+
+.experience #company, .education #school{
+    font-weight: 700;
+}
+
+.experience #company, .experience #title, .experience #duration{
+    display: inline-block;
+    width: 30%;
+    text-align: left;
+}
+
+.experience #title{
+    font-size: 14px;
+    font-weight: 700;
+    width: 35%;
+}
+.experience #description{
+    width: 100%;
+}
+
+.pdfButton{
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    outline: none;
+    border: none;
+    box-shadow: 0 0 8px 2px rgba(3,3,3,0.3);
+    background-color: #fff;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: small;
+    font-weight: 600;
+}
