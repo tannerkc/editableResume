@@ -2,7 +2,8 @@
     include('includes/config.php');
 
     if(isset($_POST['login'])){
-        $em = $_POST['email'];
+
+        $em = strtolower($_POST['email']);
         $pw = md5($_POST['password']);
         $query = mysqli_query($con, "SELECT * FROM users WHERE email = '$em' AND password = '$pw'");
 

@@ -2,10 +2,11 @@
     include('includes/config.php');
 
     if(isset($_POST['login'])){
-        $em = $_POST['email'];
+
+        $em = strtolower($_POST['email']);
         $fn = $_POST['firstName'];
         $ln = $_POST['lastName'];
-        $pw = md5($_POST['password']);
+        $pw = $_POST['password'];
         $query = mysqli_query($con, "SELECT * FROM users WHERE email = '$em'");
 
         if(mysqli_num_rows($query) == 1) {
