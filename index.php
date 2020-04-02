@@ -1,7 +1,13 @@
 <?php
     include("includes/config.php");
 
-    $query = mysqli_query($con, "SELECT * FROM resumeinfo WHERE id = 1");
+    if(!isset($_SESSION['userLoggedIn'])){
+        header("location: login.php");
+    }
+    $id = $_SESSION['id'];
+
+
+    $query = mysqli_query($con, "SELECT * FROM resumeinfo WHERE userID = '$id'");
 
     while($row = mysqli_fetch_array($query)) {
 			
@@ -15,16 +21,15 @@
         $languages = $row['languages'];
         $platforms = $row['platforms'];
         $summary = $row['summary'];
-        $certificates = $row['certificates'];
 
         $file = explode(" ", $name);
         $file = $file[0] ."_". $file[1];
 
     }
 
-    $certs = mysqli_query($con, "SELECT * FROM certificates");
-    $exp = mysqli_query($con, "SELECT * FROM experience");
-    $edu = mysqli_query($con, "SELECT * FROM education");
+    $certs = mysqli_query($con, "SELECT * FROM certificates WHERE userID = '$id'");
+    $exp = mysqli_query($con, "SELECT * FROM experience WHERE userID = '$id'");
+    $edu = mysqli_query($con, "SELECT * FROM education WHERE userID = '$id'");
 
 ?>
 

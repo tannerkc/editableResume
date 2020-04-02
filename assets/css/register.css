@@ -1,0 +1,157 @@
+html, body{
+	padding: 0;
+	margin: 0;
+	height: 100%;
+}
+
+#background{
+	position: fixed;
+	top: 0;
+	left: 0;
+	background-color: #333;
+	background: url(../img/bg.jpg);
+	background-position: center;
+	background-size: cover;
+	display: table;
+	height: 100%;
+	width: 100%;
+
+	filter: blur(7px);
+  -webkit-filter: blur(7px);
+}
+
+#loginContainer * {
+	color: #fff;
+	font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+	font-weight: 300;
+	line-height: 1.2em;
+	box-sizing: border-box;
+}
+
+#loginContainer{
+	width: 80%;
+	margin: 0 auto;
+	position: relative;
+	max-width: 1024px;
+}
+
+#inputContainer{
+	margin-top: 45px;
+	width: 400px;
+	padding: 45px;
+	float: left;
+	border-radius: 8px;
+	border-right: 1px solid #ccc;
+	background-color: rgba(0,0,0, 0.4); 
+}
+
+#signupForm, #loginForm{
+	display: none;
+}
+
+#inputContainer h2{
+	text-align: center;
+}
+
+#inputContainer input[type="text"],
+#inputContainer input[type="email"],
+#inputContainer input[type="password"]{
+	display: block;
+	background: transparent;
+	border: 0;
+	border-bottom: 1px solid #fff;
+	height: 26px;
+	line-height: 27px;
+	width: 100%;
+	outline: none !important;
+}
+#loginContainer label{
+	font-size: 18px;
+	font-weight: light;
+}
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: #aaa;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  color: #aaa;
+}
+:-ms-input-placeholder { /* IE 10+ */
+  color: #aaa;
+}
+:-moz-placeholder { /* Firefox 18- */
+  color: #aaa;
+}
+
+button{
+	background: transparent;
+	border-radius: 25px;
+	border: 2px solid #fff;
+	color: white;
+	display: block;
+	font-size: 14px;
+	letter-spacing: 1px;
+	margin: 20px auto;
+	height: 40px;
+	width: 100%;
+
+	transition: background .35s, color .35s;
+}
+
+button:hover{
+	cursor: pointer;
+	background: white;
+	border-radius: 25px;
+	border: 2px solid #fff;
+	color: #242424 !important;
+	display: block;
+	font-size: 14px;
+	letter-spacing: 1px;
+	margin: 20px auto;
+	height: 40px;
+	width: 100%;
+}
+
+.hasAccount span{
+	font-weight: bold;
+	font-size: 12px;
+}
+.hasAccount span:hover{
+	cursor: pointer;
+}
+
+.hasAccount{
+	text-align: center;
+}
+
+#loginText{
+	padding: 45px;
+	display: table-cell;
+}
+
+#loginText h1{
+	color: #FF6A6A;
+	font-size: 60px;
+	font-weight: bold;
+}
+
+#loginText h2{
+	margin: 25px 0;
+}
+
+#loginText ul{
+	padding: 0;
+}
+
+#loginText li{
+	font-size: 20px;
+	list-style-type: none;
+	padding: 8px 20px; 
+}
+
+.errorMessage{
+	color: #FF6A6A !important;
+	display: block;
+	font-size: 18px;
+	padding-bottom: 12px;
+}

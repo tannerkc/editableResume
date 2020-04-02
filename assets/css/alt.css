@@ -1,0 +1,918 @@
+*{
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	color: #353535;
+	letter-spacing: 1px;
+}
+
+html, body{
+	padding: 0;
+	margin: 0;
+	height: 100%;
+}
+
+body{
+	background: #fff;
+	font-size: 14px;
+	min-width: 720px;
+}
+
+h4{
+	color: white;
+}
+
+#nowPlayingBarContainer{
+	width: 96%;
+	background: #6158FC;
+	/*
+	background: linear-gradient(90deg, rgba(97,88,252,1) 0%, #4B0B45 25%, #000 50%, #4B0B45 75%, rgba(97,88,252,1) 100%);
+	*/
+	background: linear-gradient(105deg, rgba(97,88,252,1) 0%, rgba(80,126,230,1) 45%, rgba(97,88,252,1) 100%);
+	position: fixed;
+	bottom: 0;
+	left: 50%;
+	transform: translate(-50%);
+	border-radius: 5px;
+	min-width: 620px;
+}
+
+#nowPlayingBar{
+	display: flex;
+	height: 90px;
+	padding: 16px;
+	box-sizing: border-box;
+}
+
+#nowPlayingLeft,
+#nowPlayingRight{
+	width: 30%;
+	min-width: 180px;
+}
+#nowPlayingRight{
+	position: relative;
+	margin-top: 16px;
+}
+
+#nowPlayingCenter{
+	width: 40%;
+	max-width: 700px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+#nowPlayingBar .content{
+	width: 100%;
+}
+
+.playerControls .buttons{
+	margin: 0 auto;
+	display: table;
+}
+
+.controlButton{
+	background: transparent;
+	border: none;
+	outline: none;
+	vertical-align: middle;
+	margin-bottom: 5px;
+}
+.controlButton img{
+	width: 26px;
+	height: auto;
+	padding: 0 5px;
+}
+
+.controlButton.play img,
+.controlButton.pause img{
+	width: 35px;
+	height: auto;
+}
+
+.controlButton:hover{
+	cursor: pointer;
+}
+
+.playbackBar{
+	display: flex;
+}
+
+.progressTime{
+	color: white;
+	font-size: 11px;
+	min-width: 40px;
+	text-align: center;
+}
+
+.progressBar{
+	width: 100%;
+	height: 15px;
+	display: flex;
+	cursor: pointer;
+}
+
+.progressBarBg{
+	background: rgba(0,0,0,0.35);
+	height: 4px;
+	width: 100%;
+	border-radius: 2px;
+}
+
+.progress{
+	/*
+	background: linear-gradient(to bottom right, #1a57ca, #c026ff);
+	*/
+	background: white;
+	height: 4px;
+	width: 0;
+	border-radius: 2px;
+}
+
+.playbackBar .progressBar{
+	margin-top: 4px;
+}
+
+#nowPlayingLeft .albumArtwork{
+	height: auto;
+	max-width: 57px;
+	margin-right: 15px;
+	float: left;
+}
+
+.trackInfo {
+	display: table;
+}
+
+.trackInfo .trackName{
+	display: inline-block;
+	margin: 6px 0;
+	width: 100%;
+}
+
+.trackInfo .trackName span{
+	color: white;
+}
+
+.trackInfo .artistName span{
+	font-size: 12px;
+	color: rgba(255,255,255,0.5);
+}
+
+.volumeBar{
+	width: 175px;
+	position: absolute;
+	right: 0;
+}
+.volumeBar button{
+	float: left;
+}
+
+.volumeBar .progressBar{
+	max-width: 105px;
+	margin-top: 13px;
+}
+
+#topContainer{
+	min-height: 100%;
+	width: 96%;
+}
+
+#navBarContainer{
+	margin: 20px;
+	margin-top: 45px;
+	background: #507ee6;
+	background: linear-gradient(105deg, #507ee6 0%, rgba(97,88,252,1) 100%);
+	width: 220px;
+	height: auto;
+	border-radius: 8px;
+	position: fixed;
+	left: 0;
+	top: 0;
+
+	-webkit-box-shadow: 0px 2px 8px 2px rgba(0,0,0,0.5);
+	-moz-box-shadow: 0px 2px 8px 2px rgba(0,0,0,0.5);
+	box-shadow: 0px 2px 8px 2px rgba(0,0,0,0.5);
+}
+
+.navBar{
+	padding: 25px;
+	padding-bottom: 0;
+	display: flex;
+	overflow-x: scroll;
+	flex-direction: column;
+	-ms-flex-direction: column;
+}
+.logo{
+	text-decoration: none;
+	cursor: pointer;
+}
+.logo img{
+	width: 32px;
+	height: auto;
+	padding-bottom: 10px;
+	float: left;
+}
+.logo span{
+	/* background: -webkit-linear-gradient(#1a57ca, #c026ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; */
+	color: #fff;
+	font-size: 30px;
+	margin-top: 5px;
+	padding-left: 8px;
+	cursor: pointer;
+}
+
+.navBar .group{
+	border-top: 1px solid rgba(0,0,0,0.12);
+	padding: 10px 0;
+}
+
+.navItem{
+	position: relative;
+	padding: 10px 0;
+	font-size: 14px;
+	font-weight: 700;
+	display: block;
+	letter-spacing: 1px;
+	cursor: pointer;
+}
+
+.navItemLink{
+	text-decoration: none;
+	color: rgba(255,255,255,0.35);
+}
+
+.navItemLink:hover{
+	color: white;
+}
+
+.navItemLink .icon{
+	position: absolute;
+	right: 0;
+	top: 4px;
+	width: 25px;
+}
+
+#mainViewContainer{
+	margin-left: 265px;
+	padding-bottom: 90px;
+	width: calc(100% - 265px);
+}
+
+#mainContent{
+	padding: 0 20px;
+}
+
+.pageHeadingBig{
+	text-align: center;
+	padding: 20px;
+}
+
+.gridViewItem{
+	display: inline-block;
+	margin-right: 20px;
+	margin-bottom: 20px;
+	width: 29%;
+	max-width: 200px;
+	min-width: 150px;
+	cursor: pointer;
+}
+
+.gridViewItem a {
+	text-decoration: none;
+}
+.gridViewItem img {
+	cursor: pointer;
+	width: 100%;
+}
+
+.gridViewInfo{
+	font-weight: 300;
+	text-align: center;
+	padding: 5px 0;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+	color: #505050;
+}
+
+.shadow{
+	-webkit-box-shadow: 0px 6px 15px 2px rgba(0,0,0,0.75);
+	-moz-box-shadow: 0px 6px 15px 2px rgba(0,0,0,0.75);
+	box-shadow: 0px 6px 15px 2px rgba(0,0,0,0.75);
+}
+
+#entityInfo{
+	display: inline-block;
+}
+
+#spacer{
+	height: 420px;
+		-webkit-transition: height 0.5s;
+	-moz-transition: height 0.5s;
+	-o-transition: height 0.5s;
+	transition: height 0.5s;
+}
+
+.entityInfo{
+	padding: 10px 0;
+	display: inline-block;
+	width: calc(100% - 295px);
+	position: fixed; 
+	background: #675CFF;
+	background: linear-gradient(253deg, #507ee6 0%, rgba(97,88,252,1) 100%);
+	z-index: 99;
+	border-radius: 6px;
+	top: 15px;
+	right: 25px;
+
+	-webkit-box-shadow: 0px 5px 10px 2px rgba(0,0,0,0.65);
+	-moz-box-shadow: 0px 5px 10px 2px rgba(0,0,0,0.65);
+	box-shadow: 0px 5px 10px 2px rgba(0,0,0,0.65);
+}
+
+#artistInfo{
+	margin-top: 250px;
+	text-align: center;
+	-webkit-transition: margin 0.5s;
+	-moz-transition: margin 0.5s;
+	-o-transition: margin 0.5s;
+	transition: margin 0.5s;
+}
+
+.entityInfo .leftSection{
+	width: 30%;
+	float: left;
+	max-width: 250px;
+	transition: .5s ease;
+}
+
+.entityInfo .leftSection img{
+	width: 100%;
+	border-radius: 6px;
+	margin-left: 10px;
+}
+
+.entityInfo .leftSection h1{
+	text-align: center;
+}
+
+.entityInfo .rightSection{
+	width: 70%;
+	float: left;
+	padding: 5px 10px 5px 40px;
+	box-sizing: border-box;
+}
+
+.entityInfo .rightSection h2{
+	margin-top: 0;
+}
+
+.entityInfo .rightSection p{
+	color: rgba(255,255,255,0.5);
+	font-weight: 200;
+}
+
+.entityInfo .buttonSection{
+	width: 50%;
+	float: left;
+	max-width: 250px;
+	padding-top: 20px;
+	transition: .5s ease;
+}
+
+.trackList{
+	padding: 0;
+}
+
+.trackListRow{
+	height: 40px;
+	padding: 15px 10px;
+	list-style: none;
+	border-radius: 4px;
+}
+
+.trackListRow span{
+	color: #939393;
+	font-weight: 200;
+}
+
+.trackListRow:hover{
+	background: #282828;
+}
+
+.trackListRow .trackCount{
+	width: 8%;
+	float: left;
+}
+
+.trackListRow .trackCount .trackNumber{
+	position: relative;
+	top: 5px;
+}
+
+.trackListRow .trackCount img{
+	width: 40px;
+	height: auto;
+	visibility: hidden;
+	position: absolute;
+	cursor: pointer;
+}
+
+.trackListRow:hover .trackCount img{
+	visibility: visible;
+}
+
+.trackListRow:hover .trackCount span{
+	visibility: hidden;
+}
+
+.trackListRow:hover .trackInfo .trackName{
+	color: white;
+}
+
+.trackListRow .trackInfo{
+	width: 65%;
+	float: left;
+}
+.trackListRow .trackInfo span{
+	display: block;
+}
+
+.trackListRow .trackOptions{
+	margin-top: 5px;
+	width: 15%;
+	float: left;
+	text-align: right;
+}
+
+.trackListRow .trackOptions img{
+	width: 20px;
+	margin-right: 8px;
+	visibility: hidden;
+	cursor: pointer;
+}
+
+.trackListRow:hover .trackOptions img{
+	visibility: visible;
+}
+
+.track
+
+.trackListRow .TrackDuration{
+	margin-top: 5px;
+	width: 12%;
+	float: left;
+	text-align: right;
+}
+
+.trackListRow .trackInfo .trackName{
+	color: #404040;
+	font-weight: 700;
+	margin-bottom: 7px;
+}
+.trackListRow .songPlays{
+	float: left;
+	margin-right: 25px;
+}
+
+.artistInfo{
+	width: 100%;
+	text-align: center;
+}
+.artistInfo .artistName{
+	padding: 0;
+	margin: 0;
+	letter-spacing: 1.5px;
+	font-size: 48px;
+}
+
+.button{
+	color: white;
+	background: transparent;
+	cursor: pointer;
+	margin: 10px 0;
+	font-weight: 500;
+	letter-spacing: 2px;
+	padding: 15px;
+	border: 2px solid white;
+	border-radius: 50px;
+	min-width: 130px;
+	transition: .25s ease;
+}
+
+.button.play{
+	color: white;
+	background: transparent;
+	cursor: pointer;
+	margin: 10px 0;
+	font-weight: 500;
+	letter-spacing: 2px;
+	padding: 15px;
+	border: 2px solid white;
+	border-radius: 50px;
+	min-width: 130px;
+	transition: .25s ease;
+}
+
+.button.play:hover{
+	background: white;
+	mix-blend-mode: screen;
+	color: black;
+}
+
+.borderBottom{
+	border-bottom: 1px solid #ccc;
+	margin-bottom: 20px; 
+	padding-bottom: 20px; 
+}
+
+.trackListContainer h2{
+	padding-top: 25px;
+	text-align: center;
+}
+
+.smallInfo{
+	background: #181818;
+	max-height: 150px;
+}
+
+.artists span img{
+	display: flex;
+	margin: auto;
+	height: 150px; 
+	width: 150px;
+	border-radius: 50%;
+}
+
+.trackName span, .artistName span{
+	cursor: pointer;
+}
+
+[role="link"] {
+	cursor: pointer;
+	outline: none;
+}
+
+.searchContainer{
+	background-color: #242424;
+	padding: 20px 28px;
+	border-radius: 6px;
+	margin-top: 15px;
+	position: sticky;
+	top: 15px;
+	z-index: 99;
+	transition: .2s ease;
+}
+
+.searchContainer h4{
+	margin: 0;
+	font-weight: 300;
+}
+
+.searchContainer .searchInput{
+	width: 100%;
+	background-color: transparent;
+	border: none;
+	color: white;
+	font-size: 62px;
+	font-weight: 700;
+	letter-spacing: 2px;
+	outline: none;
+}
+
+.searchContainer:focus-within{
+	-webkit-box-shadow: 0px 6px 15px 2px rgba(0,0,0,0.75);
+	-moz-box-shadow: 0px 6px 15px 2px rgba(0,0,0,0.75);
+	box-shadow: 0px 6px 15px 2px rgba(0,0,0,0.75);
+}
+
+.upperContainer{
+	width: 100%;
+	margin-top: 30px;
+	display: inline-block;
+}
+
+.lowerContainer h2{
+	text-align: center;
+}
+
+.artistsContainer{
+	width: 49%;
+	float: left;
+	border-right: 1px solid #606060;
+	min-height: 200px;
+}
+
+.albumsContainer{
+	width: 49%;
+	float: right;
+}
+
+.searchResultsRow{
+	padding: 15px 10px;
+	width: 80%;
+	float: left;
+	border-radius: 5px;
+}
+
+.searchResultsRow:hover{
+	background-color: #ccc;
+}
+
+.searchResultsRow .albumPic img{
+	padding-right: 20px;
+}
+
+.searchResultsRow .artistName span, .albumName span{
+	display: flex;
+	flex-direction: column;
+	padding-top: 18px;
+	font-size: 22px;
+	text-align: left;
+	align-items: center;
+	justify-content: center;
+	text-overflow: ellipsis;
+}
+
+.searchResultsRow .albumName span{
+	padding-top: 0;
+}
+
+.searchResultsRow .artistName span, .albumName span{
+	color: #505050;
+}
+
+.noResults, .lastResult{
+	text-align: center;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 40%;
+	padding: 10px 0;
+}
+
+.lastResult:hover{
+	background-color: #404040;
+	border-radius: 6px;
+}
+
+.lastResult:hover span{
+	color: white;
+}
+
+.result{
+	font-weight: 300;
+	font-size: 24px;
+	letter-spacing: 2.5px;
+}
+
+.artistPic img{
+	width: 60px;
+	height: 60px;
+	border-radius: 50%;
+	float: left;
+}
+
+.albumPic img{
+	width: 70px;
+	height: 70px;
+	float: left;
+}
+
+.lastSearchContainer{
+	text-align: center;
+	padding: 10px;
+	display: block;
+	margin-top: 20px;
+	margin-left: auto;
+	margin-right: auto;
+	width: 50%;
+	border-radius: 6px;
+}
+
+.lastSearchContainer h2{
+	font-size: 30px;
+	letter-spacing: 3px;
+	font-weight: 700;
+}
+
+.buttonItems .button, .delete{
+	margin: 10px 0 20px 0;
+	display: block;
+	font-size: 11px;
+	padding: 10px 5px;
+}
+
+.gridViewContainer .playlistsHeader{
+	margin: 35px 0 10px 0;
+	font-size: 30px;
+	font-weight: 800;
+}
+
+button{
+	outline: none;
+}
+
+.playlistImage img{
+	padding-right: 10px;
+}
+
+.upperContainer .libraryHeader{
+	font-size: 32px;
+	letter-spacing: 2px;
+	text-align: center;
+}
+
+.upperContainer .gridViewContainer{
+	display: block;
+	margin-top: 20px;
+	margin-left: auto;
+	margin-right: auto;
+	min-width: 50%;
+	max-width: 60%;
+}
+
+.upperContainer .gridViewItem{
+	text-align: center;
+	width: 20%;
+	padding: 0;
+	margin-left: auto;
+	margin-right: auto;
+	font-weight: 600;
+	font-size: 22px;
+}
+
+.upperContainer .gridViewItem span{
+	color: #a0a0a0;
+	text-align: center;
+	margin: 0;
+	padding: 0;
+}
+
+.optionsMenu{
+	position: fixed;
+	background-color: #282828;
+	width: 200px;
+	border-radius: 4px;
+	-webkit-box-shadow: 0px 2px 6px 2px rgba(0,0,0,0.5);
+	-moz-box-shadow: 0px 2px 6px 2px rgba(0,0,0,0.5);
+	box-shadow: 0px 2px 6px 2px rgba(0,0,0,0.5);
+	z-index: 99;
+	display: none;
+}
+
+.optionsMenu .item{
+	background-color: #282828;
+	border-radius: 4px;
+	width: 100%;
+	font-size: 14px;
+	padding: 12px 20px;
+	box-sizing: border-box;
+	font-weight: 400;
+	color: rgba(255,255,255,0.8);
+	cursor: pointer;
+	height: 40px;
+	outline: none;
+}
+
+.optionsMenu .item:hover{
+	color: white;
+	background-color: #333;
+}
+
+.optionsMenu select{
+	border: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+}
+
+.optionsMenu select option{
+	color: rgba(255,255,255,0.5);
+}
+
+.optionsMenu select option:hover{
+	color: white;
+}
+
+#settingsInfo{
+	max-height: 172px;
+}
+
+.userInfo h1{
+	font-size: 42px;
+	letter-spacing: 1.8px;
+}
+
+.accountInfo{
+	width: 25%;
+	padding-top: 40px;
+	margin: 0 auto;
+	float: left;
+}
+
+.accountInfo span, 
+.accountInfo p{
+	color: rgba(255,255,255,0.5);
+	letter-spacing: 1.5px;
+	font-weight: 500;
+	overflow-y: hidden;
+	text-overflow: ellipsis;
+}
+
+.userDetails{
+	padding: 25px;
+}
+
+.userDetails .container h2{
+	padding-left: 10px;
+	letter-spacing: 1.5px;
+}
+
+.navItem .accountButton{
+	display: block;
+	margin: 0 auto;
+}
+
+.userDetails .container .button{
+	border-color: #404040;
+	color: #404040;
+}
+
+.userDetails .container .button:hover,
+.entityInfo .buttonItems .settingsButton:hover,
+.navItem .accountButton:hover{
+	background-color: white;
+	color: black;
+	mix-blend-mode: screen;
+}
+
+.userDetails .container input[type="email"],
+.userDetails .container input[type="password"],
+.userDetails .container .button{
+	display: block;
+	margin: 22px auto;
+}
+
+.userDetails .container input[type="email"],
+.userDetails .container input[type="password"]{
+	height: 50px;
+	width: 100%;
+	background-color: transparent;
+	border: 1px solid #404040;
+	font-size: 18px;
+	font-weight: 300;
+	padding: 0 20px;
+	border-radius: 6px;
+	outline: none;
+	transition: .2s ease;
+}
+
+.userDetails .container input[type="email"]:focus,
+.userDetails .container input[type="password"]:focus{
+	-webkit-box-shadow: 0px 2px 5px 2px rgba(0,0,0,0.25);
+	-moz-box-shadow: 0px 2px 5px 2px rgba(0,0,0,0.25);
+	box-shadow: 0px 2px 5px 2px rgba(0,0,0,0.25);
+}
+
+.userDetails .container .message{
+	color: #A38FFE;
+	font-weight: 300;
+}
+
+#settingsGridViewInfo{
+	text-align: left;
+	color: #404040;
+}
+
+#settingsGridViewInfo span{
+	color: #939393;
+}
+
+::-webkit-scrollbar {
+	height: 3px;
+	border-radius: 5px;
+    width: 0px;  /* Remove scrollbar space */
+    background: transparent;  /* Optional: just make scrollbar invisible */
+}
+/* Optional: show position indicator in red */
+::-webkit-scrollbar-thumb {
+	border-radius: 5px;
+    background: white;
+}
+
+.scrollY{
+	max-height: 240px;
+	overflow-y: hidden;
+	overflow-x: scroll;
+	white-space: nowrap;
+}
+
+.scrollY .gridViewItem{
+	display: inline-block;
+}
+
+.addList{
+	border-color:#404040;
+	color: #404040;
+}
