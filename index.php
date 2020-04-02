@@ -111,7 +111,7 @@
             </div>
 
             <div class="certificates">
-                <h2>Certificates</h2>
+                <h2>Certificates & Awards</h2>
                 <?php
                 while($certRow = mysqli_fetch_array($certs)) {
                     ?>
